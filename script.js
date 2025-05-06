@@ -17,12 +17,12 @@ let intervaloId = null;
 
 //variaveis de sons------------------------------------------------
 const musicFocoInput = document.querySelector('#alternar-musica')
-const music = new Audio('/sons/luna-rise-part-one.mp3')
+const music = new Audio('Assets/sons/luna-rise-part-one.mp3')
 music.loop = true;
 
-const playSound = new Audio('/sons/play.wav')
-const pauseSound = new Audio('/sons/pause.mp3')
-const beepSound = new Audio('/sons/beep.mp3')
+const playSound = new Audio('Assets/sons/play.wav')
+const pauseSound = new Audio('Assets/sons/pause.mp3')
+const beepSound = new Audio('Assets/sons/beep.mp3')
 
 //variaveis de icones da página-----------------------------------
 const playPauseIcon = document.querySelector('.app__card-primary-button-icon')
@@ -68,7 +68,7 @@ function alterarContexto(contexto){
         contexto.classList.remove('active')
     }) //função para remover o 'active' dos botoes
     html.setAttribute('data-contexto', contexto)
-    banner.setAttribute('src', `/imagens/${contexto}.png`)
+    banner.setAttribute('src', `Assets/imagens/${contexto}.png`)
     switch (contexto) {
         case "foco":
             contextPhrases.innerHTML = `
@@ -84,12 +84,12 @@ function alterarContexto(contexto){
                 `
 
             break;
-            case "descanso-curto":
+            case "descanso-longo":
                 contextPhrases.innerHTML = `
                 Hora de voltar à superfície.<br>
                 <strong class="app__title-strong">Faça uma pausa longa.</strong>
                 `
-    
+
         default:
             break;
     }
@@ -118,13 +118,13 @@ function initAndPause() {
     playSound.play()
     intervaloId = setInterval(contagemRegressiva, 1000)
     startPauseBtn.textContent = "Pausar";
-    playPauseIcon.setAttribute('src', `/imagens/pause.png`)
+    playPauseIcon.setAttribute('src', `Assets/imagens/pause.png`)
 }
 
 function zerar() {
     clearInterval(intervaloId)
     startPauseBtn.textContent = "Começar";
-    playPauseIcon.setAttribute('src', `/imagens/play_arrow.png`)
+    playPauseIcon.setAttribute('src', `Assets/imagens/play_arrow.png`)
     intervaloId = null;
 }
 
@@ -134,4 +134,4 @@ function screenTimer() {
     timer.innerHTML = `${formatedTimer}`;
 }
 
-screenTimer()
+screenTimer();
